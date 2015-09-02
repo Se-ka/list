@@ -27,10 +27,10 @@ var render = function () {
         $html = $(html);
 
         $html.find('button').click((function (index) {
-                return function () {
-                  productList.splice(index, 1);
-                    render();
-                };
+            return function () {
+                productList.splice(index, 1);
+                render();
+            };
         })(i));
 
         $products.append($html);
@@ -38,10 +38,10 @@ var render = function () {
 };
 
 $(function () {
-    $.ajax( {
-      url: 'data/products.json'
-    }).done (function (data) {
+    $.ajax({
+        url: 'data/products.json'
+    }).done(function (data) {
         productList = data;
         render();
-        })
+    })
 });
